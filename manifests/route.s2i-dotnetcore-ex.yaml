@@ -1,0 +1,37 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  creationTimestamp: "2024-06-27T09:24:36Z"
+  labels:
+    app: dotnet-80
+    app.kubernetes.io/component: dotnet-80
+    app.kubernetes.io/instance: dotnet-80
+    app.kubernetes.io/name: dotnet-80
+  name: s2i-dotnetcore-ex
+  namespace: demo01
+  resourceVersion: "431035"
+  uid: f9f7d9f0-03b1-433d-a065-17070b8a024e
+spec:
+  host: s2i-dotnetcore-ex-demo01.apps.cluster-hkjqq.sandbox2822.opentlc.com
+  port:
+    targetPort: 8080-tcp
+  tls:
+    insecureEdgeTerminationPolicy: Allow
+    termination: edge
+  to:
+    kind: Service
+    name: s2i-dotnetcore-ex
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress:
+  - conditions:
+    - lastTransitionTime: "2024-06-27T09:24:36Z"
+      status: "True"
+      type: Admitted
+    host: s2i-dotnetcore-ex-demo01.apps.cluster-hkjqq.sandbox2822.opentlc.com
+    routerCanonicalHostname: router-default.apps.cluster-hkjqq.sandbox2822.opentlc.com
+    routerName: default
+    wildcardPolicy: None
